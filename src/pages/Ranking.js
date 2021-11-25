@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Ranking.css';
 
 class Ranking extends Component {
   constructor(props) {
@@ -15,10 +16,22 @@ class Ranking extends Component {
 
   render() {
     const { history } = this.props;
-    console.log(this.recoverStorageData());
+    const objRanking = this.recoverStorageData();
+    objRanking.sort((a, b) => b.score - a.score);
+    const ranking = objRanking.map((eachObj, i) => (
+      <tr key={ i }>
+        <td><img src={ eachObj.picture } alt={ eachObj.name } /></td>
+        <td data-testid={ `player-name-${i} ` }>{eachObj.name}</td>
+        <td data-testid={ `player-score-${i}` }>{eachObj.score}</td>
+      </tr>));
     return (
-      <div>
-        <h1 data-testid="ranking-title">RankingPage</h1>
+      <div className="container-section">
+        <h1 className="ranking-title" data-testid="ranking-title">Ranking</h1>
+        <table>
+          <tbody>
+            { ranking }
+          </tbody>
+        </table>
         <button
           type="button"
           data-testid="btn-go-home"
