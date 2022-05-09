@@ -10,5 +10,5 @@ Teconologias e bibliotecas:
 
 APIs: 
 
-https://opentdb.com/api_token.php?command=request - Para geração do Token
-https://opentdb.com/api.php?amount=5&token=${token} - Para perguntas e respostas
+- https://opentdb.com/api_token.php?command=request - Para geração do Token
+- https://opentdb.com/api.php?amount=5&token=${token} - Para perguntas e respostas
